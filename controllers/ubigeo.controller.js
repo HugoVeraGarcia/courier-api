@@ -15,15 +15,8 @@ const { catchAsync } = require('../utils/catchAsync');
 const sequelize = require('sequelize');
 
 const loadData = catchAsync(async (req, res, next) => {
-  const {
-    country,
-    ubigeo,
-    region,
-    province,
-    district,
-    latitude,
-    longuitude,
-  } = req.body;
+  const { country, ubigeo, region, province, district, latitude, longuitude } =
+    req.body;
 
   const data = await Ubigeo.create({
     country,
@@ -148,8 +141,8 @@ const getDistrictByProvince = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
   const ubigeo = await Ubigeo.findAll({
-    attributes: ['district'],
-    group: ['district'],
+    attributes: ['district', 'id'],
+    group: ['district', 'id'],
     where: { province: id },
     order: [['district', 'Asc']],
   });

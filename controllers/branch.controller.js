@@ -38,7 +38,7 @@ const createBranch = catchAsync(async (req, res, next) => {
 const getAllBranch = catchAsync(async (req, res, next) => {
   const branch = await Branch.findAll({
     where: { status: 'active' },
-    attributes: ['address'],
+    attributes: ['address', 'id'],
     include: { model: Ubigeo },
     //attributes: ['ubigeo', 'country', 'region', 'province', 'district'],
 
