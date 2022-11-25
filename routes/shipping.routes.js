@@ -14,32 +14,27 @@ const {
 
 // controllers functions
 const {
-  // createBranch,
-  // getAllBranch,
-  // deleteBranchById,
-  // updateBranch,
   getPrice,
+  createShipping,
+  updateShipping,
 } = require('../controllers/shipping.controller');
 
 //router declaration
 const router = express.Router();
 
 // get price
-router.get('/price', getPrice);
+router.get(
+  '/price/:ubigeo_origin/:ubigeo_destiny/:height/:width/:large/:weight',
+  getPrice
+);
 
 // Protecting below endpoints
-//usersRouter.use(protectSession);
+router.use(protectSession);
 
-// create category
-//router.post('/', createBranch);
+// create shipping
+router.post('/', createShipping);
 
-// get all category
-//router.get('/', getAllBranch);
-
-// delete category by id
-//router.delete('/:id', branchExistsParams, deleteBranchById);
-
-//  update category
-//router.patch('/', branchExists, updateBranch);
+//  update shipping
+router.patch('/', updateShipping);
 
 module.exports = { shippingRouter: router };

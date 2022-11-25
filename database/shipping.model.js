@@ -25,6 +25,14 @@ const Shipping = db.define('shipping', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  destiny_email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  destiny_phone: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   ubigeo_id_destiny: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -42,6 +50,10 @@ const Shipping = db.define('shipping', {
   },
   price: {
     type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  zip_code: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
   high_size: {
